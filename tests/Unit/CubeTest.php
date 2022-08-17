@@ -17,18 +17,25 @@ class CubeTest extends TestCase
             ->assertSee('CUBE TEST PASSING ATTRIBUTES TO COMPONENTS');
     }
 
-    public function testItShowsTheCubesBody()
+    public function testItCanMergeInAttributesToANormalComponent()
     {
         $this->get(route('welcome'))
             ->assertOk()
-            ->assertSee('Informative Body');
+            ->assertSeeInOrder(['text-green-500','This is a working component with an attribute merge']);
     }
 
-    public function testItShowsARemarkableCaption()
+    public function testItCanMergeAttributesIntoComponentIntoLoadingACube()
     {
         $this->get(route('welcome'))
             ->assertOk()
-            ->assertSee('remarkable caption');
+            ->assertSeeInOrder(['bg-pink-100','Informative Body']);
+    }
+
+    public function testItShowsACaptionWithNoAttributesMerged()
+    {
+        $this->get(route('welcome'))
+            ->assertOk()
+            ->assertSeeInOrder(['Section passed to component no attributes loading normally.','text-blue-500','remarkable caption']);
     }
 
     public function testItShowTheCaptionWithMergedAttributes()
@@ -37,7 +44,7 @@ class CubeTest extends TestCase
         $this->markTestSkipped();
         $this->get(route('welcome'))
             ->assertOk()
-            ->assertSee('text-purple-500');
+            ->assertSeeInOrder(['Section passed to component breaking attributes','text-purple-500','remarkable caption']);
     }
 
     protected function setUp(): void
