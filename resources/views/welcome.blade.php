@@ -25,8 +25,14 @@
             <div class="text-xl font-bold text-red-600">
                 CUBE TEST PASSING ATTRIBUTES TO COMPONENTS
                 <x-normal class="text-green-500">
-                    I am Groot
+                    This is a working component with an attribute merge
                 </x-normal>
+
+{{--                This component has a disabled line item which causes a break--}}
+{{--                and a sub-component which also causes a break.--}}
+
+                <x-cube class="bg-pink-100" />
+
             </div>
 
         </div>
