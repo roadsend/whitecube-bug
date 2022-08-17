@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Cube;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Cube>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<Cube>
  */
 class CubeFactory extends Factory
 {
@@ -17,7 +18,7 @@ class CubeFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word(),
         ];
     }
 }
