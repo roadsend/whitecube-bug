@@ -2,7 +2,6 @@
 
 namespace App\Casts;
 
-
 use App\Nova\Flexible\Layouts\TextWithLink;
 use Whitecube\NovaFlexibleContent\Value\FlexibleCast;
 
